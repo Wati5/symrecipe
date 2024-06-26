@@ -5,8 +5,8 @@ namespace App\Form;
 use App\Entity\Ingredient;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -16,26 +16,31 @@ class IngredientType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'attr' => [
-                    'class' => 'form-control',
-                    'minlength' => 2,
-                    'maxlength' => 50,
+                'attr'=>[
+                    'class'=>'form-control', 
+                    'minlength' =>'2',
+                    'maxlength' =>'50'
                 ],
-                'label' => 'Nom',
-                'label_attr' => [
-                    'class' => 'form-label mt-4',
-                ]
+                'label'=>'Nom',
+                'label_attr' =>[
+                    'class' => 'form-label mt-4'
+                ],
             ])
             ->add('price', MoneyType::class, [
-                'attr' => [
-                    'class' => 'form-control',
+                'attr'=>[
+                    'class'=>'form-control', 
                 ],
-                'label' => 'Prix',
-                'label_attr' => [
-                    'class' => 'form-label mt-4',
-                ]
+                'label'=>'Prix',
+                'label_attr' =>[
+                    'class' => 'form-label mt-4'
+                ],
             ])
-            ->add('submit', SubmitType::class)
+            ->add('submit', SubmitType::class, [
+                'attr'=>[
+                    'class'=>'btn btn-primary btn-lg', 
+                ],
+                'label'=>'Valider',
+            ])
         ;
     }
 
